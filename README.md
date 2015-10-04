@@ -1,6 +1,6 @@
 # Range Parsing
 
-Parses a string range such as `1,2,3-7,9` into the array `[1,2,3,4,5,6,7,8,9]`
+Parses a string range such as `1,2,3-7,9` into the array `[1,2,3,4,5,6,7,9]`
 
 ## Install
 
@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
 });
 ```
-See the [jQuery Widget Rangr demo](jqdemo.html) with your browser console visible.
+Copy the [jQuery Widget Rangr demo](jqdemo.html) locally and experiment with your browser console visible.
 
 # Contributing
 
