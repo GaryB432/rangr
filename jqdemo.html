@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Widget - Rangr</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="rangr.js"></script>
+  <script>
+    $(document).ready(function(){
+        var $range = $("#range-input").rangr({ max: 15 });
+        
+        $("#seeRange").click(function(){
+          console.log($range.rangr("range"));
+        });
+    });
+  </script>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="range-input" />
+    <button id="seeRange">See Range</button>
+  </div>
+</body>
+
+</html>
