@@ -1,18 +1,31 @@
 {
   "name": "rangr",
-  "version": "1.0.0",
-  "authors": [
-    "Gary Bortosky <garybort@gmail.com>"
+  "description": "Range parsing from text to array of numbers",
+  "main": [
+    "rangr.js"
   ],
-  "moduleType": [
-    "globals"
+  "devDependencies": {
+    "jasmine": "~2.3.4"
+  },
+  "keywords": [
+    "range",
+    "parsing"
+  ],
+  "authors": [
+    {
+      "name": "Gary Bortosky",
+      "email": "gary@bortosky.com",
+      "homepage": "http://bortosky.com/gary"
+    }
   ],
   "license": "ISC",
   "ignore": [
     "**/.*",
-    "bower_components"
+    "bower_components",
+    "spec"
   ],
-  "devDependencies": {
-    "jasmine": "~2.3.4"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/GaryB432/rangr"
   }
 }
