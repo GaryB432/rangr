@@ -22,6 +22,8 @@ namespace Rangr {
 		parse(text: string): number[] {
 			let answer: number[] = [];
 
+			if (!text) return answer;
+			
 			var csvParts = text.split(",", 100);
 
 			for (let csv of csvParts) {

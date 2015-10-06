@@ -3,6 +3,11 @@ describe("Rangr", function () {
     beforeEach(function () {
         ranger = new Rangr.Parser();
     });
+    it("should return empty array on empty input", function () {
+        expect(ranger.parse("")).toEqual([]);
+        expect(ranger.parse(null)).toEqual([]);
+        expect(ranger.parse(undefined)).toEqual([]);
+    });
     it("should throw when given NaN", function () {
         expect(function () { return ranger.parse("2,four,8"); }).toThrowError("Cannot parse \"four\".");
     });

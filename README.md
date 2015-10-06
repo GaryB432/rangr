@@ -8,9 +8,20 @@ $ bower install rangr
 
 ## Usage
 
+```javascript
+var p = new Rangr.Parser({ max: 10 });
+console.log(p.parse("1,2,3-5,6")); // [1,2,3,4,5,6]
+```
+
+### constructor(options)
+#### options.max
+The maximum number of entries in the returned array
+
+Type: `Number`<br><br>Default: 10
+
 ### JQuery UI Widget
 
-```script
+```javascript
 $(document).ready(function(){
     var $range = $("#range-input").rangr({ max: 15 });
     

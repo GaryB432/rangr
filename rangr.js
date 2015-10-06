@@ -29,6 +29,8 @@ var Rangr;
         }
         Parser.prototype.parse = function (text) {
             var answer = [];
+            if (!text)
+                return answer;
             var csvParts = text.split(",", 100);
             for (var _i = 0; _i < csvParts.length; _i++) {
                 var csv = csvParts[_i];
