@@ -33,4 +33,10 @@ describe("Rangr", () => {
 			expect(() => p.parse("1,2,3,4,5")).toThrowError("Range too long.");
 		})
 	})
+	describe("Max too big", () => {
+		it("should throw if max is too big", () => {
+			expect(() => new Rangr.Parser({ max: 10E3 })).toThrowError("Rangr options error: max is too big.");
+
+		})
+	})
 })

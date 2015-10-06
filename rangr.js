@@ -5,27 +5,44 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Rangr;
 (function (Rangr) {
-    var RangrParseError = (function (_super) {
-        __extends(RangrParseError, _super);
-        function RangrParseError(part) {
+    var ParseError = (function (_super) {
+        __extends(ParseError, _super);
+        function ParseError(part) {
             _super.call(this);
             this.message = "Cannot parse \"" + part + "\".";
         }
-        return RangrParseError;
+        return ParseError;
     })(Error);
-    var RangrLengthError = (function (_super) {
-        __extends(RangrLengthError, _super);
-        function RangrLengthError() {
+    var LengthError = (function (_super) {
+        __extends(LengthError, _super);
+        function LengthError() {
             _super.call(this);
             this.message = "Range too long.";
         }
-        return RangrLengthError;
+        return LengthError;
     })(Error);
+    var OptionsError = (function (_super) {
+        __extends(OptionsError, _super);
+        function OptionsError(message) {
+            _super.call(this);
+            this.message = "Rangr options error: " + message + ".";
+        }
+        return OptionsError;
+    })(Error);
+    var MaxOptionsError = (function (_super) {
+        __extends(MaxOptionsError, _super);
+        function MaxOptionsError() {
+            _super.call(this, 'max is too big');
+        }
+        return MaxOptionsError;
+    })(OptionsError);
     var Parser = (function () {
         function Parser(opts) {
             if (opts === void 0) { opts = { max: undefined }; }
             this.opts = opts;
             this.opts.max = this.opts.max || 10;
+            if (this.opts.max > 100)
+                throw new MaxOptionsError();
         }
         Parser.prototype.parse = function (text) {
             var answer = [];
@@ -38,7 +55,7 @@ var Rangr;
                 for (var _a = 0; _a < subRange.length; _a++) {
                     var n = subRange[_a];
                     if (answer.length === this.opts.max) {
-                        throw new RangrLengthError();
+                        throw new LengthError();
                     }
                     answer.push(n);
                 }
@@ -60,14 +77,14 @@ var Rangr;
                 return this.doRange(Number(p[0]), Number(p[1]), this.opts.max);
             }
             else {
-                throw new RangrParseError(part);
+                throw new ParseError(part);
             }
         };
         Parser.prototype.doRange = function (start, end, max) {
             var answer = [];
             for (var n = start; !(n > end); n++) {
                 if (answer.length === max) {
-                    throw new RangrLengthError();
+                    throw new LengthError();
                 }
                 answer.push(n);
             }

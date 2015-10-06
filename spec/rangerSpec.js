@@ -32,5 +32,10 @@ describe("Rangr", function () {
             expect(function () { return p.parse("1,2,3,4,5"); }).toThrowError("Range too long.");
         });
     });
+    describe("Max too big", function () {
+        it("should throw if max is too big", function () {
+            expect(function () { return new Rangr.Parser({ max: 10E3 }); }).toThrowError("Rangr options error: max is too big.");
+        });
+    });
 });
 //# sourceMappingURL=rangerSpec.js.map
