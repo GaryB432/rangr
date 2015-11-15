@@ -32,6 +32,15 @@ $(document).ready(function(){
   $('img').load(sectionHeight);
 });
 
+
+ $(document).ready(function(){
+        var $range = $("#range-input").rangr({ max: 15 });
+        
+        $("#seeRange").click(function(){
+          console.log($range.rangr("range"));
+        });
+    });
+
 fixScale = function(doc) {
 
   var addEvent = 'addEventListener',
